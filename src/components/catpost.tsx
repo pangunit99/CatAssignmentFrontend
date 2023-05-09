@@ -6,7 +6,8 @@ import axios from 'axios';
 
 const Catpost = () => {
   const navigate = useNavigate();
-  const [catpost,setcatpost,setLoading,loading] = React.useState(null)
+  const [catpost,setcatpost] = React.useState(null)
+  const [loading,setLoading] = React.useState(null)
   React.useEffect(()=>{
     axios.get(`${api.uri}/api/v1/catpost/`)
     .then((res)=>{
