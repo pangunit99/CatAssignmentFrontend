@@ -18,9 +18,9 @@ const activateLasers = (event:any) =>{
   const register = { "firstname" :`${fname}`, "lastname":`${lname}`,"login" : `${username}`, "password" : `${password}`, "email" : `${email}`};
   console.log(register)
      axios.post(`${api.uri}/api/v1/user/staff`, register)
-      .then(response => this.setState({ message: `You sent:${register}` }))
-       .catch(({ message }) => this.setState({ message }));
-  if(status.code!=500){
+      .then(response => setState({ message: `You sent:${register}` }))
+       .catch(({ message }) => setState({ message }));
+  if(state.code!=500){
      alert("Successful")
   }
   navigate('/');
