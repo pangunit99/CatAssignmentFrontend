@@ -6,20 +6,18 @@ import Staffreg from './components/staff_register'
 import Regtest from './components/regtest'
 import Dcat from './components/dcat'
 import Slogin from './components/staffLogin'
-
-
+import Staffbar from './components/staffbar'
 const {Header,Content, Footer} = Layout;
 
 export default function App(){
-  return(
+  if(localStorage.getItem("auth")){
+return(
     
     <Router>
       <Header>
       <nav>
         <Space>
-          <Link to="/">Home</Link>
-          <Link to="/Regtest">regtest</Link>
-          <Link to="/staffLogin">staffLogin</Link>
+          <Staffbar />
         </Space>
       </nav>
       </Header>
@@ -35,6 +33,38 @@ export default function App(){
         <p>VT6003CEM</p>
       </Footer>
     </Router>
+    
+  
+  
   );
+}else{
+  return(
+    
+    <Router>
+      <Header>
+      <nav>
+        <Space>
+          <Staffbar />
+        </Space>
+      </nav>
+      </Header>
+      <Content>
+        <Routes>
+          <Route index element = { <Home />} />
+          <Route path="/regtest" element = { <Regtest />} />
+          <Route path="/dcat/:id" element = { <Dcat />} />
+          <Route path="/staffLogin" element = { <Slogin />} />
+        </Routes>
+      </Content>
+      <Footer>
+        <p>VT6003CEM</p>
+      </Footer>
+    </Router>
+    
+  
+  
+  );
+    
+}
 }
 

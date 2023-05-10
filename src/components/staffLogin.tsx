@@ -8,6 +8,7 @@ const slogin = () => {
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const navigate = useNavigate();
   const status = '';
 
@@ -65,16 +66,16 @@ const handleFormSubmit=(values:any)=>{
       alert("Login or password fail");
     }
   }).then((res)=>{
+    setIsSubmitted(true);
     console.log(res.data);
     console.log(res.status);
         localStorage.setItem("auth", `${access_token}`)
         console.log("this is localstorage save data!");
-        console.log(localStorage.getItem("auth"));
       })
   
 }
-  
-  return(
+
+  const sLoginForm = (
     <div className="container">
 	<div className="card">
 		<div className="card-image">	
@@ -111,6 +112,13 @@ const handleFormSubmit=(values:any)=>{
 		</div>
 	</div>
 </div>
+  )
+  
+  return(
+  <div>
+    
+    {isSubmitted ? <div className="card">Wellcome {username}</div> : sLoginForm}
+  </div>
   )
 }
 
