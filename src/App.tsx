@@ -12,7 +12,6 @@ const {Header,Content, Footer} = Layout;
 export default function App(){
   if(localStorage.getItem("auth")){
 return(
-    
     <Router>
       <Header>
       <nav>
@@ -33,13 +32,10 @@ return(
         <p>VT6003CEM</p>
       </Footer>
     </Router>
-    
-  
   
   );
 }else{
   return(
-    
     <Router>
       <Header>
       <nav>
@@ -61,8 +57,6 @@ return(
       </Footer>
     </Router>
     
-  
-  
   );
     
 }
