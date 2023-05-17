@@ -6,7 +6,9 @@ import Staffreg from './components/staff_register'
 import Regtest from './components/regtest'
 import Dcat from './components/dcat'
 import Slogin from './components/staffLogin'
-import Staffbar from './components/staffbar'
+import Setheader from './components/setheader'
+import Upload from './components/uploadpost'
+
 const {Header,Content, Footer} = Layout;
 
 export default function App(){
@@ -16,7 +18,7 @@ return(
       <Header>
       <nav>
         <Space>
-          <Staffbar />
+          <Setheader />
         </Space>
       </nav>
       </Header>
@@ -32,7 +34,6 @@ return(
         <p>VT6003CEM</p>
       </Footer>
     </Router>
-  
   );
 }else{
   return(
@@ -40,7 +41,7 @@ return(
       <Header>
       <nav>
         <Space>
-          <Staffbar />
+          <Setheader />
         </Space>
       </nav>
       </Header>
@@ -50,15 +51,14 @@ return(
           <Route path="/regtest" element = { <Regtest />} />
           <Route path="/dcat/:id" element = { <Dcat />} />
           <Route path="/staffLogin" element = { <Slogin />} />
+          <Route path="/uploadpost" element = { <Slogin />} />
         </Routes>
       </Content>
       <Footer>
         <p>VT6003CEM</p>
       </Footer>
     </Router>
-    
   );
-    
 }
 }
 

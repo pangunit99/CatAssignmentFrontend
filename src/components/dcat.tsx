@@ -1,6 +1,5 @@
 import React from 'react';
 import {Link,useParams} from 'react-router-dom'
-import {Card,Col,Row} from 'antd'
 import { api } from './common/http-common';
 import axios from 'axios';
 import { Image } from 'antd';
