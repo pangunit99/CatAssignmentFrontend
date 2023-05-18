@@ -19,7 +19,7 @@ const delcat= () =>{
   }
 return (
   rundel(),
-  window.location.href = "https://catassignmentfrontend.railpang1999.repl.co"
+  window.location.href = "https://catassignmentfrontend.railpang1999.repl.co/deletepost"
 )
   
 }
