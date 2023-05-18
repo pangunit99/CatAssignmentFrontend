@@ -1,13 +1,19 @@
 import React from 'react';
 import {Link,useNavigate} from 'react-router-dom'
-import {Card,Col,Row} from 'antd'
+import {Card,Col,Row,Button} from 'antd'
 import { api } from './common/http-common';
 import axios from 'axios';
 
-const Catpost = () => {
+const delpost = () => {
   const navigate = useNavigate();
   const [catpost,setcatpost] = React.useState(null)
   const [loading,setLoading] = React.useState(null)
+
+  function deletepost(id){
+    console.log(id)
+  }
+
+  
   React.useEffect(()=>{
     axios.get(`${api.uri}/api/v1/catpost/`)
     .then((res)=>{
@@ -38,8 +44,7 @@ const Catpost = () => {
                   </div>
                   <p>{alltext}</p>
                   <p></p>
-                  <Link to={`/dcat/${id}`}>Details</Link>
-                  
+                  <Link to={`/delcat/${id}`}>Delete</Link>
                 </Card>
               </Col>
               ))
@@ -50,4 +55,4 @@ const Catpost = () => {
     }
 }
 }
-export default Catpost;
+export default delpost;

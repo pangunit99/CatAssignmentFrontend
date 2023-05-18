@@ -7,58 +7,14 @@ import Regtest from './components/regtest'
 import Dcat from './components/dcat'
 import Slogin from './components/staffLogin'
 import Setheader from './components/setheader'
-import Upload from './components/uploadpost'
-
+import Fupload from './components/fullupload'
+import Website from './components/web'
+import Delcat from './components/delcat'
 const {Header,Content, Footer} = Layout;
 
 export default function App(){
-  if(localStorage.getItem("auth")){
-return(
-    <Router>
-      <Header>
-      <nav>
-        <Space>
-          <Setheader />
-        </Space>
-      </nav>
-      </Header>
-      <Content>
-        <Routes>
-          <Route index element = { <Home />} />
-          <Route path="/regtest" element = { <Regtest />} />
-          <Route path="/dcat/:id" element = { <Dcat />} />
-          <Route path="/staffLogin" element = { <Slogin />} />
-        </Routes>
-      </Content>
-      <Footer>
-        <p>VT6003CEM</p>
-      </Footer>
-    </Router>
-  );
-}else{
   return(
-    <Router>
-      <Header>
-      <nav>
-        <Space>
-          <Setheader />
-        </Space>
-      </nav>
-      </Header>
-      <Content>
-        <Routes>
-          <Route index element = { <Home />} />
-          <Route path="/regtest" element = { <Regtest />} />
-          <Route path="/dcat/:id" element = { <Dcat />} />
-          <Route path="/staffLogin" element = { <Slogin />} />
-          <Route path="/uploadpost" element = { <Slogin />} />
-        </Routes>
-      </Content>
-      <Footer>
-        <p>VT6003CEM</p>
-      </Footer>
-    </Router>
-  );
-}
+    <Website />
+  )
 }
 

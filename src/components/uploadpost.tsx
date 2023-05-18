@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { api } from './common/http-common';
+import '../index.css'
 import {
   Button,
   Cascader,
@@ -21,15 +21,14 @@ const uploadpost = () => {
   const [breed, setBreed] = useState('');
   const [alltext, setAlltext] = useState('');
   const [summary, setSummary] = useState('');
-  const [imageurl,setImageurl] = useState('')
+  const [imageurl,setImageurl] = useState('');
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const { TextArea } = Input;
   const access = localStorage.getItem('auth');
 
-  function changeStatus(e) {
-    setStatus(e.target.value);
-  }
+
   
-  const createpost=(event)=>{
+  const createpost=(event:any)=>{
     event.preventDefault();
     const cpost = {"title" :`${title}`,
                    "breed":`${breed}`,
@@ -46,9 +45,10 @@ const uploadpost = () => {
     }}).catch((err)=>{
       console.log(err.response)
       if(err.response){
-        alert("Login or password fail");
+        alert("Please input all information");
       }
     }).then((res)=>{
+      setIsSubmitted(true);
       console.log(res.data);
       console.log(res.status);
     })
@@ -61,8 +61,8 @@ const uploadpost = () => {
     setComponentSize(size);
   };
 
-  return (
-    <Form
+  const uform = (
+        <Form
       labelCol={{ span: 4 }}
       wrapperCol={{ span: 14 }}
       layout="horizontal"
@@ -116,7 +116,12 @@ const uploadpost = () => {
         <Button onClick={createpost}>Submit</Button>
       </Form.Item>
     </Form>
+  )
+  return (
+    <div>
+    {isSubmitted ? <div className="card">Catpost are uploaded!</div>:uform}
+    </div>
   );
-};
+}
 
 export default uploadpost;

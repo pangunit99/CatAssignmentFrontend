@@ -41,12 +41,7 @@ const handleFormSubmit=(values:any)=>{
   values.preventDefault();
   
   const access_token =Buffer.from(`${username}:${password}`,'utf8').toString('base64')
-  
-  const head = {
-    headers: {
-      'Authorization': `Basic ${access_token}`
-    }
-  };
+
   
     const login = {
       "login": `${username}`,
@@ -66,11 +61,19 @@ const handleFormSubmit=(values:any)=>{
       alert("Login or password fail");
     }
   }).then((res)=>{
-    setIsSubmitted(true);
-    console.log(res.data);
-    console.log(res.status);
+    if(res.status==201){
+      setIsSubmitted(true);
+      console.log(res.data);
+      console.log(res.status);
         localStorage.setItem("auth", `${access_token}`)
         console.log("this is localstorage save data!");
+    }
+      }).then(()=>{
+        for (let index = 0; index < 3000; index++) {
+          
+        }
+        navigate("/");
+        window.location.reload();
       })
   
 }
@@ -116,7 +119,6 @@ const handleFormSubmit=(values:any)=>{
   
   return(
   <div>
-    
     {isSubmitted ? <div className="card">Wellcome {username}</div> : sLoginForm}
   </div>
   )
