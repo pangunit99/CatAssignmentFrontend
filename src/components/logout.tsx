@@ -1,6 +1,5 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom";
-import {axios} from "axios"
 
 
 const logout=()=>{
@@ -8,7 +7,7 @@ const logout=()=>{
   
   const clear=()=>{
     localStorage.clear();
-    window.location.reload();
+    window.location.replace("https://catassignmentfrontend.railpang1999.repl.co");
   }
   return (
     <button onClick={clear}>Logout</button>

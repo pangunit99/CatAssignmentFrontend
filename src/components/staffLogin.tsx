@@ -12,32 +12,8 @@ const slogin = () => {
   const navigate = useNavigate();
   const status = '';
 
-  /*
-  const handleFormSubmit=(values:any)=>{
-    values.preventDefault();
-    
-    console.log(username,password);
-    const login = {
-      "login": `${username}`,
-      "password":`${password}`
-    }
-    
-    axios.post(`${api.uri}/api/v1/user/login`,login)
-      .then((res)=>{
-      console.log(res.data)
-      console.log(res.status)
-      if(res.status==201){
-      alert('Login successful')
-    }else{
-        alert('invalid username and password')
-    }
-    })
-    
-    
-  }
-*/
   
-const handleFormSubmit=(values:any)=>{
+const handleStaffSubmit=(values:any)=>{
   values.preventDefault();
   
   const access_token =Buffer.from(`${username}:${password}`,'utf8').toString('base64')
@@ -51,7 +27,7 @@ const handleFormSubmit=(values:any)=>{
   console.log(access_token)
   console.log(login);
   
-  axios.get(`${api.uri}/api/v1/user/login`,{
+  axios.post(`${api.uri}/api/v1/staff/login`,login,{
     headers: {
       'Authorization': `Basic ${access_token}`
     }
@@ -73,7 +49,7 @@ const handleFormSubmit=(values:any)=>{
           
         }
         navigate("/");
-        window.location.reload();
+        window.location.replace("https://catassignmentfrontend.railpang1999.repl.co/");
       })
   
 }
@@ -106,7 +82,7 @@ const handleFormSubmit=(values:any)=>{
 			</div>
       
 			<div className="action">
-				<input type="submit" value="Login" onClick={handleFormSubmit} ></input>
+				<input type="submit" value="Login" onClick={handleStaffSubmit} ></input>
 			</div>
       
 		</form>

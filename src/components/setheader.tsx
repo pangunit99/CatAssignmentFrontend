@@ -22,6 +22,7 @@ const usestaff=(
           <Link to="/">Home</Link>
           <Link to="/fullupload">Uploadpost</Link>
           <Link to = "/deletepost">Delete Post</Link>
+          
           <LogoutButton />
         </Space>
 )
@@ -29,17 +30,19 @@ const user=(
         <Space>
           <Link to="/">Home</Link>
           <Link to="/myfavourute">Favourite</Link>
+          <Link to={`/profile`}>Profile</Link>
+          <LogoutButton />
         </Space>
 )
 
 
 const staffbar=()=>{
-    if (localStorage.getItem("auth")===null) {
-      return nothing;
+    if (localStorage.getItem("auth")!==null) {
+      return usestaff;
     }else if(localStorage.getItem("userauth")!==null){
       return user;
     }else{
-      return usestaff;
+      return nothing;
     }
       
 }

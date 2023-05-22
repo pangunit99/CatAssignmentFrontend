@@ -17,6 +17,7 @@ import Setheader from './setheader'
 import Fullupload from './fullupload'
 import Deletepost from './deletepost'
 import Delcat from './delcat'
+import Pfile from './profile'
 
 const {Header,Content, Footer} = Layout;
 
@@ -34,12 +35,16 @@ const showonStaffLogin = (
           <Route index element = { <Home />} />
           <Route path="/dcat/:id" element = { <Dcat />} />
           <Route path="/regtest" element = { <Regtest />} />
+          <Route path="/login" element = { <Login />} />
           
           <Route path="/staffLogin" element = { <Slogin />} />
           <Route path="/staff_register" element = { <Staffreg />} />
           <Route path="/fullupload" element = { <Fullupload />} />
           <Route path="/deletepost" element = { <Deletepost />} />
           <Route path="/delcat/:id" element = { <Delcat />} />
+          <Route path="/profile" element = { <Pfile />} />
+          
+          
         </Routes>
       </Content>
       <Footer>

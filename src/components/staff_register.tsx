@@ -11,19 +11,23 @@ const StaffRegister = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email,setEmail] =useState('');
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const navigate = useNavigate();
 
 const activateLasers = (event:any) =>{
   event.preventDefault();
   const register = { "firstname" :`${fname}`, "lastname":`${lname}`,"login" : `${username}`, "password" : `${password}`, "email" : `${email}`};
   console.log(register)
-     axios.post(`${api.uri}/api/v1/user/staff`, register)
-      .then(response => setState({ message: `You sent:${register}` }))
-       .catch(({ message }) => setState({ message }));
-  if(state.code!=500){
-     alert("Successful")
-  }
-  navigate('/');
+     axios.post(`${api.uri}/api/v1/staff/staff`, register)
+       .catch((err)=>{
+        console.log(err.response)
+        if(err.response){
+          alert("please input all information");
+        }
+      }).then((res)=>{
+        alert("register successful")
+        window.location.replace("https://catassignmentfrontend.railpang1999.repl.co/staffLogin");
+      })
 }
   
   

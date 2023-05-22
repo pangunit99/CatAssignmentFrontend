@@ -32,8 +32,6 @@ const selectoption=()=>{
     setStatus(e.target.value);
     apicatimage(e.target.value)
   }
-
-  
       const showimage =(
           <Row justify = "space-around">
           {

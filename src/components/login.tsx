@@ -11,34 +11,15 @@ const slogin = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const navigate = useNavigate();
   const status = '';
-
-  /*
-  const handleFormSubmit=(values:any)=>{
-    values.preventDefault();
-    
-    console.log(username,password);
-    const login = {
-      "login": `${username}`,
-      "password":`${password}`
-    }
-    
-    axios.post(`${api.uri}/api/v1/user/login`,login)
-      .then((res)=>{
-      console.log(res.data)
-      console.log(res.status)
-      if(res.status==201){
-      alert('Login successful')
-    }else{
-        alert('invalid username and password')
-    }
-    })
-    
-    
-  }
-*/
+  const [info,setInfo] = useState([])
   
-const handleFormSubmit=(values:any)=>{
+  
+const handleUserSubmit=(values:any)=>{
   values.preventDefault();
+  const login = {
+      "username": `${username}`
+    }
+
   
   const access_token =Buffer.from(`${username}:${password}`,'utf8').toString('base64')
   
@@ -48,30 +29,26 @@ const handleFormSubmit=(values:any)=>{
     }
   };
   
-    const login = {
-      "username": `${username}`,
-      "password":`${password}`
-    }
-  
   console.log(access_token)
   console.log(login);
   
-  axios.get(`${api.uri}/api/v1/user/login`,{
+  axios.post(`${api.uri}/api/v1/user/ulogin`,login,{
     headers: {
       'Authorization': `Basic ${access_token}`
     }
   }).catch((err)=>{
     console.log(err.response)
     if(err.response){
-      alert("Login or password fail");
+      alert("username or password fail");
     }
   }).then((res)=>{
     setIsSubmitted(true);
-    console.log(res.data);
-    console.log(res.status);
-        localStorage.setItem("auth", `${access_token}`)
-        console.log("this is localstorage save data!");
-      })
+    //console.log(res);
+    localStorage.setItem("userauth", `${access_token}`);
+    localStorage.setItem("username",`${username}`);
+    window.location.replace("https://catassignmentfrontend.railpang1999.repl.co/profile");
+  })
+
 }
 
   const sLoginForm = (
@@ -79,7 +56,7 @@ const handleFormSubmit=(values:any)=>{
 	<div className="card">
 		<div className="card-image">	
 			<h2 className="card-heading">
-				<small>Staff Login</small>
+				<small>User Login</small>
 			</h2>
 		</div>
     
@@ -102,7 +79,7 @@ const handleFormSubmit=(values:any)=>{
 			</div>
       
 			<div className="action">
-				<input type="submit" value="Login" onClick={handleFormSubmit} ></input>
+				<input type="submit" value="Login" onClick={handleUserSubmit} ></input>
 			</div>
       
 		</form>
