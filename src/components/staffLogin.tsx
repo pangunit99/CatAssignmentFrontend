@@ -42,6 +42,7 @@ const handleStaffSubmit=(values:any)=>{
       console.log(res.data);
       console.log(res.status);
         localStorage.setItem("auth", `${access_token}`)
+      localStorage.setItem("login", `${username}`)
         console.log("this is localstorage save data!");
     }
       }).then(()=>{
@@ -49,7 +50,7 @@ const handleStaffSubmit=(values:any)=>{
           
         }
         navigate("/");
-        window.location.replace("https://catassignmentfrontend.railpang1999.repl.co/");
+        window.location.replace("https://catassignmentfrontend.railpang1999.repl.co/staffprofile");
       })
   
 }

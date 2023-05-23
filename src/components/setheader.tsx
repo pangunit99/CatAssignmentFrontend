@@ -21,6 +21,7 @@ const usestaff=(
         <Space>
           <Link to="/">Home</Link>
           <Link to="/fullupload">Uploadpost</Link>
+          <Link to="/updatepost">Updatepost</Link>
           <Link to = "/deletepost">Delete Post</Link>
           
           <LogoutButton />

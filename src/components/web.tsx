@@ -6,11 +6,14 @@ import Home from './home'
 
 import Regtest from './regtest'
 import Login from './login'
+import Addfav from './addfav'
 
 import Staffreg from './staff_register'
 import Slogin from './staffLogin'
 import Logout from './logout'
 import Dcat from './dcat'
+import Staffprofile from "./staffprofile"
+import Updatepost from "./updatepost"
 
 import Setheader from './setheader'
 
@@ -36,13 +39,19 @@ const showonStaffLogin = (
           <Route path="/dcat/:id" element = { <Dcat />} />
           <Route path="/regtest" element = { <Regtest />} />
           <Route path="/login" element = { <Login />} />
+          <Route path="/addfav/:id" element = { <Addfav />} />
           
           <Route path="/staffLogin" element = { <Slogin />} />
           <Route path="/staff_register" element = { <Staffreg />} />
           <Route path="/fullupload" element = { <Fullupload />} />
           <Route path="/deletepost" element = { <Deletepost />} />
           <Route path="/delcat/:id" element = { <Delcat />} />
+          <Route path="/staffprofile" element = {<Staffprofile />} />
+          <Route path="/updatepost" element = {<Updatepost />} />
+
+          
           <Route path="/profile" element = { <Pfile />} />
+          
           
           
         </Routes>

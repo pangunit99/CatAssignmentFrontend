@@ -6,7 +6,7 @@ import './dcat.css'
 
 
 const profile=()=>{
-  const username = localStorage.getItem("username");
+  const username = localStorage.getItem("login");
   const [info,setInfo] = React.useState([]);
   const user = {
     "username":`${username}`
@@ -14,7 +14,7 @@ const profile=()=>{
 
   console.log(user);
   
-      axios.get(`${api.uri}/api/v1/user/${username}`)
+      axios.get(`${api.uri}/api/v1/staff/${username}`)
         .then((rest)=>{
           const data = JSON.parse(JSON.stringify(rest.data))
           setInfo(data)
