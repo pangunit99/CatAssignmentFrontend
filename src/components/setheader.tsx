@@ -30,7 +30,7 @@ const usestaff=(
 const user=(
         <Space>
           <Link to="/">Home</Link>
-          <Link to="/myfavourute">Favourite</Link>
+          <Link to="/myfavourite">Favourite</Link>
           <Link to={`/profile`}>Profile</Link>
           <LogoutButton />
         </Space>

@@ -11,32 +11,36 @@ const StaffRegister = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email,setEmail] =useState('');
+  const [regid, setRegid] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const navigate = useNavigate();
 
 const activateLasers = (event:any) =>{
   event.preventDefault();
-  const register = { "firstname" :`${fname}`, "lastname":`${lname}`,"login" : `${username}`, "password" : `${password}`, "email" : `${email}`};
-  console.log(register)
-     axios.post(`${api.uri}/api/v1/staff/staff`, register)
-       .catch((err)=>{
-        console.log(err.response)
-        if(err.response){
-          alert("please input all information");
-        }
-      }).then((res)=>{
-        alert("register successful")
-        window.location.replace("https://catassignmentfrontend.railpang1999.repl.co/staffLogin");
-      })
+  if(regid=='compst13'){
+    const register = { "firstname" :`${fname}`, "lastname":`${lname}`,"login" : `${username}`, "password" : `${password}`, "email" : `${email}`};
+    console.log(register)
+       axios.post(`${api.uri}/api/v1/staff/staff`, register)
+         .catch((err)=>{
+          console.log(err.response)
+          if(err.response){
+            alert("please input all information");
+          }
+        }).then((res)=>{
+          alert("register successful")
+          window.location.replace("https://catassignmentfrontend.railpang1999.repl.co/staffLogin");
+        })  
+  }else{
+    alert("Please input correct register id")
+  }
 }
-  
   
   return(
     <div className="container">
 	<div className="card">
 		<div className="card-image">	
 			<h2 className="card-heading">
-				<small>Let create your account</small>
+				<small>Staff account register</small>
 			</h2>
 		</div>
     
@@ -81,13 +85,20 @@ const activateLasers = (event:any) =>{
 				<label className="input-label">Password</label>
 			</div>
       
+      <div className="input">
+				<input type="text" id="regid" name="regid" value={regid} 
+          onChange={(event) =>
+          setRegid(event.target.value)
+        } className="input-field" required/>
+				<label className="input-label">Registerid</label>
+			</div>
 			<div className="action">
-				<input type="submit" value="Create account" onClick={activateLasers} ></input>
+				<input className="action-button" type="submit" value="Create account" onClick={activateLasers} ></input>
 			</div>
       
 		</form>
 		<div className="card-info">
-			<p>Have account? <br/><a href="#">Click here to login!</a></p>
+			<p>Have account? <br/><a href="/staffLogin">Click here to login!</a></p>
 		</div>
 	</div>
 </div>

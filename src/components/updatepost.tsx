@@ -18,7 +18,6 @@ import {
 
 
 const uploadpost = () => {
-  let params = useParams();
   const [title, setTitle] = useState('');
   const [breed, setBreed] = useState('');
   const [alltext, setAlltext] = useState('');
@@ -30,8 +29,9 @@ const uploadpost = () => {
   const staffid = localStorage.getItem('id');
   const [detailcat,setDetailcat] = React.useState([])
   const [allcat,setAllcat] = React.useState([])
-  const [postid,setPostid] = useState('');
-  console.log(params.id)
+
+  const delay = ms => new Promise(res => setTimeout(res, ms));
+  
   const [status, setStatus] = React.useState(null);
   React.useEffect(()=>{
     axios.get(`${api.uri}/api/v1/catpost/`)
@@ -53,8 +53,10 @@ const uploadpost = () => {
   }
   function changeStatus(e:any) {
     setStatus(e.target.value);
-    findpost(e.target.value)
+    findpost(e.target.value);
+
   }
+
 
   
   const updatepost=(event:any)=>{
@@ -101,6 +103,7 @@ const uploadpost = () => {
       style={{ maxWidth: 600 }}
       className="card-form">
       
+      
       <Form.Item label="Title">
         <Input type="text" id="title" name="title" value={detailcat.title} 
           onChange={(event) =>
@@ -109,7 +112,7 @@ const uploadpost = () => {
       </Form.Item>
       
       <Form.Item label="Breed">
-        <Input type="text" id="breed" name="breed" value={detailcat.breed}
+        <Input type="text" id="breed" name="breed" value={detailcat.breed} 
           onChange={(event) =>
           setBreed(event.target.value)
         } />

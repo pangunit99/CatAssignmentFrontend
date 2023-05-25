@@ -79,7 +79,7 @@ const handleUserSubmit=(values:any)=>{
 			</div>
       
 			<div className="action">
-				<input type="submit" value="Login" onClick={handleUserSubmit} ></input>
+				<input className="action-button" type="submit" value="Login" onClick={handleUserSubmit} ></input>
 			</div>
       
 		</form>

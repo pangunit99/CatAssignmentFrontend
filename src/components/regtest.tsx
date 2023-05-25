@@ -13,16 +13,19 @@ const Register = () => {
   const [email,setEmail] =useState('');
   const navigate = useNavigate();
 
-const activateLasers = (event) =>{
+const activateLasers = (event:any) =>{
   event.preventDefault();
   const register = { "firstname" :`${fname}`, "lastname":`${lname}`,"username" : `${username}`, "password" : `${password}`, "email" : `${email}`};
   console.log(register)
      axios.post(`${api.uri}/api/v1/user/user`, register)
-      .then(response => this.setState({ message: `You sent:${register}` }))
-       .catch(({ message }) => this.setState({ message }));
-  if(status.code!=500){
-     alert("Successful")
-  }
+       .catch((err)=>{
+         if(err.response){
+           alert('please input all information') 
+         }
+       })
+      .then((res)=>{
+        alert("register successful")
+      })
   navigate('/');
 }
   
@@ -78,19 +81,16 @@ const activateLasers = (event) =>{
 			</div>
       
 			<div className="action">
-				<input type="submit" value="Create account" onClick={activateLasers} ></input>
+				<input className="action-button" type="submit" value="Create account" onClick={activateLasers} ></input>
 			</div>
       
 		</form>
 		<div className="card-info">
-			<p>Have account? <br/><a href="#">Click here to login!</a></p>
+			<p>Have account? <br/><a href="/login">Click here to login!</a></p>
 		</div>
 	</div>
 </div>
   )
 }
-
-
-
 
 export default Register;

@@ -2,48 +2,27 @@ import React from 'react';
 import {Link,useNavigate} from 'react-router-dom'
 import {Card,Col,Row} from 'antd'
 import { api } from './common/http-common';
-import { catapi } from './common/cat-common';
 import axios from 'axios';
 
 const Catpost = () => {
   const navigate = useNavigate();
   const [catpost,setcatpost] = React.useState(null)
-
-  const [status, setStatus] = React.useState(null);
+  const [loading,setLoading] = React.useState()
+  const userid = localStorage.getItem('id');
   
   React.useEffect(()=>{
-    axios.get(`${api.uri}/api/v1/catpost/`)
-    .then((res)=>{
-      setcatpost(res.data)
-      console.log(res.data)
-    }).then(()=>{
-      setLoading(false);
-    })
-  },[])
-
-
-  if(loading){
-    return (
-      <p>Loading...</p>
-    )
-  } else{
+    axios.get(`${api.uri}/api/v1/favourite/${userid}`)
+      .then((res)=>{
+        setcatpost(res.data)
+        console.log(res.data)
+      })
+    },[]);
+  
     if(!catpost){
       <p>no catpost found</p>
-    }else if(status!==null){
-      return(
-        <div>
-          {getBybreed}
-          {breedcatshow}
-        </div>
-        
-      )
     }else{
     return(
       <Row justify = "space-around">
-        <div>
-          {getBybreed}
-          {breedcatshow}
-        </div>
           {
             catpost &&
               catpost.map(({id,title,alltext,imageurl})=>(
@@ -65,6 +44,5 @@ const Catpost = () => {
     )
       
     }
-}
 }
 export default Catpost;
