@@ -23,6 +23,9 @@ const usestaff=(
           <Link to="/fullupload">Uploadpost</Link>
           <Link to="/updatepost">Updatepost</Link>
           <Link to = "/deletepost">Delete Post</Link>
+          <Link to = "/message">Message</Link>
+          <Link to = "/seemsg">Msg</Link>
+          <Link to = "/staff_showallmsg">Show All Message</Link>
           
           <LogoutButton />
         </Space>
@@ -32,6 +35,8 @@ const user=(
           <Link to="/">Home</Link>
           <Link to="/myfavourite">Favourite</Link>
           <Link to={`/profile`}>Profile</Link>
+          <Link to = "/message">Message</Link>
+          <Link to = "/seemsg">Msg</Link>
           <LogoutButton />
         </Space>
 )

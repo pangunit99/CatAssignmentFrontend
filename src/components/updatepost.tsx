@@ -61,8 +61,8 @@ const uploadpost = () => {
   
   const updatepost=(event:any)=>{
     event.preventDefault();
-    const cpost = {"title" :`${title}`,
-                   "breed":`${breed}`,
+    const cpost = {"title" :`${detailcat.title}`,
+                   "breed":`${detailcat.breed}`,
                    "alltext" : `${alltext}`,
                    "summary" : `${summary}`,
                    "imageurl" : `${imageurl}`,

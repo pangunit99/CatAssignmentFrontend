@@ -8,6 +8,7 @@ import Regtest from './regtest'
 import Login from './login'
 import Addfav from './addfav'
 import Favourite from "./myfavourite"
+import Seemsg from "./seemsg"
 
 import Staffreg from './staff_register'
 import Slogin from './staffLogin'
@@ -15,9 +16,11 @@ import Logout from './logout'
 import Dcat from './dcat'
 import Staffprofile from "./staffprofile"
 import Updatepost from "./updatepost"
-
+import Staffreplymsg from "./staffreplymsg"
+import Staff_showallmsg from "./staff_showallmsg"
 
 import Setheader from './setheader'
+import Message from './message'
 
 import Fullupload from './fullupload'
 import Deletepost from './deletepost'
@@ -51,16 +54,21 @@ const showonStaffLogin = (
           <Route path="/delcat/:id" element = { <Delcat />} />
           <Route path="/staffprofile" element = {<Staffprofile />} />
           <Route path="/updatepost" element = {<Updatepost />} />
+          <Route path="/staff_showallmsg" element = {<Staff_showallmsg />} />
+          
+          <Route path="/staffreplymsg/:id" element = {<Staffreplymsg />} />
 
+          <Route path="/seemsg" element = {<Seemsg />} />
           
           <Route path="/profile" element = { <Pfile />} />
+          <Route path="/message" element = { <Message />} />
           
           
           
         </Routes>
       </Content>
       <Footer>
-        <p>VT6003CEM</p>
+        <p>VT6003CEM Assignment Pang Hing Chuen</p>
       </Footer>
     </Router>
 )

@@ -97,9 +97,8 @@ const Catpost = () => {
           {getBybreed}
           {breedcatshow}
         </div>
-        
       )
-    }else{
+    }else if (localStorage.getItem('username'!=null)){
     return(
       <Row justify = "space-around">
         <div>
@@ -125,6 +124,34 @@ const Catpost = () => {
           }
           </Row>
     )
+      
+    }else{
+      return(
+        <Row justify = "space-around">
+          <div>
+            {getBybreed}
+            {breedcatshow}
+          </div>
+            {
+              catpost &&
+                catpost.map(({id,title,alltext,imageurl})=>(
+                <Col span={8} key={id} >
+                  <Card title={title} style={{ width:300}} >
+                    <div className="custom-image">
+                      <img alt="example" width="80%" src={imageurl} />
+                    </div>
+                    <p>{alltext}</p>
+                    <p></p>
+                    <Link to={`/dcat/${id}`}>Details</Link>
+                    <p></p>
+                  </Card>
+                </Col>
+                ))
+            }
+            </Row>
+      )
+
+
       
     }
 }
