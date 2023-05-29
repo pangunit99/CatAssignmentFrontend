@@ -23,8 +23,6 @@ const usestaff=(
           <Link to="/fullupload">Uploadpost</Link>
           <Link to="/updatepost">Updatepost</Link>
           <Link to = "/deletepost">Delete Post</Link>
-          <Link to = "/message">Message</Link>
-          <Link to = "/seemsg">Msg</Link>
           <Link to = "/staff_showallmsg">Show All Message</Link>
           
           <LogoutButton />

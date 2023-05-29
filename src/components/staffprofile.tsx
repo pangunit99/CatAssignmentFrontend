@@ -12,7 +12,7 @@ const profile=()=>{
     "username":`${username}`
   }
 
-  console.log(user);
+  console.log(username);
   
       axios.get(`${api.uri}/api/v1/staff/${username}`)
         .then((rest)=>{
