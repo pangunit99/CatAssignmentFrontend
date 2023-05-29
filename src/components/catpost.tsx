@@ -98,7 +98,7 @@ const Catpost = () => {
           {breedcatshow}
         </div>
       )
-    }else if (localStorage.getItem('username'!=null)){
+    }else if (localStorage.getItem('username')!=null){
     return(
       <Row justify = "space-around">
         <div>
