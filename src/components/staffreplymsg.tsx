@@ -10,7 +10,6 @@ import {
   DatePicker,
   Form,
   Input,
-  InputNumber
 } from 'antd';
 
 const replymsg = () => {
