@@ -14,9 +14,9 @@ It is use React to create the website
 
 This website is show the userinterfact to test the API
 
-### 
-![image]([picture or gif url](https://github.com/pangunit99/CatAssignmentFrontend/blob/main/public/10.PNG))
+### Website
+![image](https://github.com/pangunit99/CatAssignmentFrontend/blob/main/public/10.PNG)
 
-![image]([picture or gif url](https://github.com/pangunit99/CatAssignmentFrontend/blob/main/public/11.PNG))
+![image](https://github.com/pangunit99/CatAssignmentFrontend/blob/main/public/11.PNG)
 
-![image]([picture or gif url](https://github.com/pangunit99/CatAssignmentFrontend/blob/main/public/12.PNG))
+![image](https://github.com/pangunit99/CatAssignmentFrontend/blob/main/public/12.PNG)
